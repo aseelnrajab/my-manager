@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../Widget/scaffold_appBar.dart';
+import '../Widget/custom_appBar.dart';
 
 class MainHome extends StatelessWidget {
   MainHome({Key? key}) : super(key: key);
@@ -10,51 +10,70 @@ class MainHome extends StatelessWidget {
     'ID cards'
   ];
   List<Icon> bnIcons = const [
-    Icon(Icons.key_rounded),
-    Icon(Icons.credit_card_sharp),
+    Icon(Icons.vpn_key_rounded),
+    Icon(Icons.credit_card),
     Icon(Icons.note),
-    Icon(Icons.perm_identity),
+    Icon(Icons.perm_identity_rounded),
   ];
-  List<String> path = [];
-  static const Color backGroundcolor = Color(0xff2F3260);
+  List<String> path = [
+    '/password_home',
+    '/payment_cards_home',
+    '/notes_home',
+    '/id_cards_home',
+  ];
+  static const Color backGroundcolor = Color(0xff3874b0);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: SAppBar('Home'),
-      body: Container(
-        color: const Color(0xffE4F6FF),
-        height: double.infinity,
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              Row(
-                children: [
-                  Expanded(
-                      flex: 1,
-                      child: Container(
-                        width: 10,
-                      )),
-                  Expanded(
-                    flex: 5,
-                    child: SizedBox(
-                      width: double.infinity,
-                      child: CircleAvatar(
-                          backgroundColor: const Color(0xffE4F6FF),
-                          radius: 150,
-                          child: Image.asset('images/momen.png')),
-                    ),
-                  )
-                ],
+        extendBodyBehindAppBar: true,
+        appBar: AppBar(
+          title: const Text(
+            'Home',
+            style: TextStyle(color: Color(0xff323662)),
+          ),
+          elevation: 0,
+          centerTitle: true,
+          backgroundColor: Colors.transparent,
+          leading: InkWell(
+            onTap: (){
+              Navigator.of(context).pushReplacementNamed('login');
+            },
+            child: const Icon(
+              Icons.arrow_back,
+              color: Color(0xff323662),
+            ),
+          ),
+        ),
+        body: Container(
+            color: const Color(0xfffaece9),
+            height: double.infinity,
+            child: SingleChildScrollView(
+                child: Column(children: [
+              Container(
+                height: 480,
+                width: double.infinity,
+                decoration: const BoxDecoration(
+
+                  borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(30),
+                      bottomRight: Radius.circular(30)
+                     ),
+                  image: DecorationImage(
+                      image: AssetImage('images/background.png'),
+                      fit: BoxFit.fitWidth),
+                ),
               ),
-              SizedBox(
-                height: 370,
+              Container(
+                color: const Color(0xfffaece9),
+                width: double.infinity,
+                height: 350,
                 child: GridView.builder(
                     scrollDirection: Axis.horizontal,
                     physics: const NeverScrollableScrollPhysics(),
                     itemCount: 4,
                     padding: const EdgeInsets.symmetric(
-                        horizontal: 20, vertical: 40),
+                        horizontal: 25, vertical: 20),
                     shrinkWrap: true,
                     gridDelegate:
                         const SliverGridDelegateWithFixedCrossAxisCount(
@@ -63,7 +82,7 @@ class MainHome extends StatelessWidget {
                             crossAxisSpacing: 20,
                             childAspectRatio: 9 / 10),
                     itemBuilder: (context, index) {
-                      return ElevatedButton.icon(
+                      return ElevatedButton(
                         style: ElevatedButton.styleFrom(
                           primary: Colors.white,
                           shape: RoundedRectangleBorder(
@@ -72,25 +91,29 @@ class MainHome extends StatelessWidget {
                         onPressed: () {
                           Navigator.pushNamed(context, path[index]);
                         },
-                        label: Text(
-                          '${bnLabels[index]}',
-                          textAlign: TextAlign.center,
-                          style: const TextStyle(
-                            fontFamily: 'Tajawal',
-                            fontWeight: FontWeight.w700,
-                            color: backGroundcolor,
-                          ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(bnIcons[index].icon,
+                                size: 30, color: const Color(0xff3874b0)),
+                            const SizedBox(
+                              height: 20,
+                            ),
+                            Text(
+                              '${bnLabels[index]}',
+                              textAlign: TextAlign.center,
+                              style: const TextStyle(
+                                fontFamily: 'Tajawal',
+                                fontWeight: FontWeight.w700,
+                                color: backGroundcolor,
+                              ),
+                              //label text
+                            ),
+                          ],
                         ),
-                        icon: Icon(bnIcons[index].icon,
-                            size: 30, color: const Color(0xffB9683C)),
-                        //label text
                       );
                     }),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
+              )
+            ]))));
   }
 }

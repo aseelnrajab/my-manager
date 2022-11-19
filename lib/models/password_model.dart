@@ -1,24 +1,24 @@
-class PasswordModel {
+class PasswordsModel {
   int? id;
   String? websiteName;
   String? username;
   String? password;
 
-  PasswordModel({this.id, this.websiteName, this.username, this.password});
+  PasswordsModel({this.id, this.websiteName, this.username, this.password});
 
   Map<String, dynamic> toMap() {
     return {
-      'WebsiteName': websiteName,
-      'Username': username,
-      'Password': password,
+      'websiteName': websiteName,
+      'username': username,
+      'password': password,
     };
   }
 
-  factory PasswordModel.fromMap(Map<String, dynamic> map) {
-    return PasswordModel(
+  factory PasswordsModel.fromMap(Map<String, dynamic> map) {
+    return PasswordsModel(
         id: map['id']?.toInt(),
-        websiteName: map['WebsiteName'],
-        username: map['Username'],
-        password: map['Password']);
+        websiteName: map['websiteName'],
+        username: map['username'],
+        password: map['password']);
   }
 }

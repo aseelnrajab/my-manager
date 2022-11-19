@@ -4,6 +4,7 @@ class PaymentCardModel {
   String? cardNumber;
   String? validDate;
   String? cardType;
+  String? csv;
   String? holderName;
 
   PaymentCardModel(
@@ -11,6 +12,7 @@ class PaymentCardModel {
       this.bankName,
       this.cardNumber,
       this.validDate,
+      this.csv,
       this.cardType,
       this.holderName});
 
@@ -19,6 +21,7 @@ class PaymentCardModel {
       'bankName': bankName,
       'cardNumber': cardNumber,
       'validDate': validDate,
+      'csv': csv,
       'cardType': cardType,
       'holderName': holderName,
     };
@@ -26,10 +29,11 @@ class PaymentCardModel {
 
   factory PaymentCardModel.fromMap(Map<String, dynamic> map) {
     return PaymentCardModel(
-        id: map['id2Column']?.toInt(),
+        id: map['id']?.toInt(),
         bankName: map['bankName'],
         cardNumber: map['cardNumber'],
         validDate: map['validDate'],
+        csv: map['csv'],
         cardType: map['cardType'],
         holderName: map['holderName']);
   }
