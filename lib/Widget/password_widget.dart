@@ -12,7 +12,7 @@ class PasswordWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding:const  EdgeInsets.all(10),
+      padding:const  EdgeInsets.all(20),
       margin: const EdgeInsets.only(bottom: 20),
       decoration: BoxDecoration(
         border: Border.all(color: const Color(0xff2F3260)),
@@ -21,7 +21,7 @@ class PasswordWidget extends StatelessWidget {
       child: Row(children: [
         const Icon(Icons.key, color: Color(0xff3874b0)),
         const SizedBox(
-          width: 80,
+          width: 110,
         ),
         Column(children: [
           Text(

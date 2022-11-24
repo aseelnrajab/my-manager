@@ -11,13 +11,13 @@ class NewPaymentCardScreen extends StatelessWidget {
     return Scaffold(
       appBar: CustomAppBar('Add Payment Card Screen'),
       body: Container(
-        color: const Color(0xfffaece9),
+        color: const Color(0xfff3f0f1),
         child: Consumer<Manager>(builder: (context, provider, x) {
           return Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
-                margin: EdgeInsets.only(right: 20, left: 20),
+                margin: const EdgeInsets.only(right: 20, left: 20),
                 child: TextFormField(
                   decoration: InputDecoration(
                     labelText: 'Bank Name',
@@ -33,7 +33,7 @@ class NewPaymentCardScreen extends StatelessWidget {
                 height: 10,
               ),
               Container(
-                margin: EdgeInsets.only(right: 20, left: 20),
+                margin: const EdgeInsets.only(right: 20, left: 20),
                 child: TextFormField(
                   decoration: InputDecoration(
                     labelText: 'Card Number',
@@ -49,7 +49,7 @@ class NewPaymentCardScreen extends StatelessWidget {
                 height: 10,
               ),
               Container(
-                margin: EdgeInsets.only(right: 20, left: 20),
+                margin: const EdgeInsets.only(right: 20, left: 20),
                 child: TextFormField(
                   decoration: InputDecoration(
                     labelText: 'Name On Card',
@@ -65,7 +65,7 @@ class NewPaymentCardScreen extends StatelessWidget {
                 height: 10,
               ),
               Container(
-                margin: EdgeInsets.only(right: 20, left: 20),
+                margin: const EdgeInsets.only(right: 20, left: 20),
                 child: TextFormField(
                   decoration: InputDecoration(
                     labelText: 'Card Type',
@@ -81,7 +81,7 @@ class NewPaymentCardScreen extends StatelessWidget {
                 height: 10,
               ),
               Container(
-                margin: EdgeInsets.only(right: 20, left: 20),
+                margin: const EdgeInsets.only(right: 20, left: 20),
                 child: TextFormField(
                   controller: provider.dateController,
                   decoration: InputDecoration(
@@ -97,7 +97,7 @@ class NewPaymentCardScreen extends StatelessWidget {
                 height: 10,
               ),
               Container(
-                margin: EdgeInsets.only(right: 20, left: 20),
+                margin: const EdgeInsets.only(right: 20, left: 20),
                 child: TextFormField(
                   controller: provider.csvController,
                   decoration: InputDecoration(
@@ -109,18 +109,23 @@ class NewPaymentCardScreen extends StatelessWidget {
                   ),
                 ),
               ),
-
-              ElevatedButton(
-                  onPressed: () async {
-                    await provider.insertNewPaymentCard();
-                    Navigator.pop(context);
-                  },
-                  style: ElevatedButton.styleFrom(
-                    primary: const Color(0xffE07C5E),
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30.0)),
-                  ),
-                  child: const Text('Add New Payment Card!'))
+              const SizedBox(
+                height: 20,
+              ),
+              Container(
+                  height: 35,
+                  width: 200,
+                  child: ElevatedButton(
+                      onPressed: () async {
+                        await provider.insertNewPaymentCard();
+                        Navigator.pop(context);
+                      },
+                      style: ElevatedButton.styleFrom(
+                        primary: const Color(0xff3874b0),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(30.0)),
+                      ),
+                      child: const Text('Add New Payment Card!')))
             ],
           );
         }),

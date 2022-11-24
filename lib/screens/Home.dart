@@ -30,89 +30,172 @@ class MainHome extends StatelessWidget {
         appBar: AppBar(
           title: const Text(
             'Home',
-            style: TextStyle(color: Color(0xff323662)),
           ),
           elevation: 0,
           centerTitle: true,
           backgroundColor: Colors.transparent,
           leading: InkWell(
-            onTap: (){
+            onTap: () {
               Navigator.of(context).pushReplacementNamed('login');
             },
             child: const Icon(
               Icons.arrow_back,
-              color: Color(0xff323662),
             ),
           ),
         ),
         body: Container(
-            color: const Color(0xfffaece9),
+            color: const Color(0xfff3f0f1),
             height: double.infinity,
             child: SingleChildScrollView(
                 child: Column(children: [
-              Container(
-                height: 480,
-                width: double.infinity,
-                decoration: const BoxDecoration(
-
-                  borderRadius: BorderRadius.only(
-                      bottomLeft: Radius.circular(30),
-                      bottomRight: Radius.circular(30)
-                     ),
-                  image: DecorationImage(
-                      image: AssetImage('images/background.png'),
-                      fit: BoxFit.fitWidth),
+              Stack(children: [
+                Container(
+                  height: 480,
+                  width: double.infinity,
+                  decoration: const BoxDecoration(
+                    gradient: LinearGradient(
+                        colors: [Color(0xff647d8b), Color(0xff335263)]),
+                    borderRadius: BorderRadius.only(
+                        bottomLeft: Radius.circular(30),
+                        bottomRight: Radius.circular(30)),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 160.0, left: 20),
+                    child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: const [
+                          Text(
+                            'Store Your',
+                            style:
+                                TextStyle(color: Colors.white38, fontSize: 40),
+                          ),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          Text(
+                            'Passwords, Notes, Cards',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.w400,
+                                letterSpacing: 2,
+                                fontSize: 25),
+                          ),
+                          SizedBox(
+                            height: 30,
+                          ),
+                          Text(
+                            'All In One Place',
+                            style: TextStyle(
+                                color: Colors.white,
+                                letterSpacing: 5,
+                                fontWeight: FontWeight.w300,
+                                fontSize: 22),
+                          ),
+                          SizedBox(
+                            height: 100,
+                          ),
+                        ]),
+                  ),
                 ),
-              ),
-              Container(
-                color: const Color(0xfffaece9),
-                width: double.infinity,
-                height: 350,
-                child: GridView.builder(
-                    scrollDirection: Axis.horizontal,
-                    physics: const NeverScrollableScrollPhysics(),
-                    itemCount: 4,
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 25, vertical: 20),
-                    shrinkWrap: true,
-                    gridDelegate:
-                        const SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 2,
-                            mainAxisSpacing: 40,
-                            crossAxisSpacing: 20,
-                            childAspectRatio: 9 / 10),
-                    itemBuilder: (context, index) {
-                      return ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          primary: Colors.white,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(19.0)),
-                        ),
-                        onPressed: () {
-                          Navigator.pushNamed(context, path[index]);
-                        },
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Icon(bnIcons[index].icon,
-                                size: 30, color: const Color(0xff3874b0)),
-                            const SizedBox(
-                              height: 20,
+                Padding(
+                  padding: const EdgeInsets.only(top: 420.0, left: 30),
+                  child: Container(
+                    height: 90,
+                    width: 370,
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        shadowColor: const Color(0xffc59b77),
+                        primary: const Color(0xffc59b77),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(24.0)),
+                      ),
+                      onPressed: () {},
+                      child: Row(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(top: 23.0),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: const [
+                                Text(
+                                  'Your Password ',
+                                  style:
+                                      TextStyle(letterSpacing: 2, fontSize: 18),
+                                ),
+                                Text(
+                                  'Manager',
+                                  style:
+                                      TextStyle(letterSpacing: 2, fontSize: 18),
+                                ),
+                              ],
                             ),
-                            Text(
-                              '${bnLabels[index]}',
-                              textAlign: TextAlign.center,
-                              style: const TextStyle(
-                                fontFamily: 'Tajawal',
-                                fontWeight: FontWeight.w700,
-                                color: backGroundcolor,
+                          ),
+                          const SizedBox(
+                            width: 150,
+                          ),
+                          const Icon(
+                            Icons.arrow_forward,
+                            size: 20,
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ]),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 30.0),
+                child: Container(
+                  color: const Color(0xfff3f0f1),
+                  width: double.infinity,
+                  height: 300,
+                  child: GridView.builder(
+                      scrollDirection: Axis.horizontal,
+                      physics: const NeverScrollableScrollPhysics(),
+                      itemCount: 4,
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 25, vertical: 20),
+                      shrinkWrap: true,
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                              crossAxisCount: 2,
+                              mainAxisSpacing: 40,
+                              crossAxisSpacing: 20,
+                              childAspectRatio: 9 / 10),
+                      itemBuilder: (context, index) {
+                        return ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            shadowColor: Colors.white,
+                            primary: const Color(0xfff3f0f1),
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(19.0)),
+                          ),
+                          onPressed: () {
+                            Navigator.pushNamed(context, path[index]);
+                          },
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(bnIcons[index].icon,
+                                  size: 30, color: const Color(0xffc09d81)),
+                              const SizedBox(
+                                height: 20,
                               ),
-                              //label text
-                            ),
-                          ],
-                        ),
-                      );
-                    }),
+                              Text(
+                                '${bnLabels[index]}',
+                                textAlign: TextAlign.center,
+                                style: const TextStyle(
+                                  fontFamily: 'Tajawal',
+                                  fontWeight: FontWeight.w700,
+                                  color: Color(0xff836c5b),
+                                ),
+                                //label text
+                              ),
+                            ],
+                          ),
+                        );
+                      }),
+                ),
               )
             ]))));
   }

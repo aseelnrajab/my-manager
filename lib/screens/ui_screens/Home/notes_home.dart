@@ -22,7 +22,7 @@ class NotesHome extends StatelessWidget {
           child: const Icon(Icons.add),
         ),
         body: Container(
-          color: Color(0xfffaece9),
+          color:Color(0xfff3f0f1),
           padding: EdgeInsets.all(15.0),
           child: YourNotes(),
         ));

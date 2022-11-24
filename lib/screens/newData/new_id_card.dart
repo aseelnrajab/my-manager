@@ -11,18 +11,18 @@ class NewIdCardScreen extends StatelessWidget {
     return Scaffold(
       appBar: CustomAppBar('Add An Id Card!'),
       body: Container(
-        color: Color(0xfffaece9),
+        color:const Color(0xfff3f0f1),
         height: double.infinity,
         child: Consumer<Manager>(builder: (context, provider, x) {
-          return  Column(
+          return Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
-                  margin: EdgeInsets.only(right: 20, left: 20),
+                  margin: const EdgeInsets.only(right: 20, left: 20),
                   child: TextFormField(
                     controller: provider.cardIdController,
                     decoration: InputDecoration(
-                      label: Text('Your Card ID'),
+                      label:const Text('Your Card ID'),
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(30),
                           borderSide:
@@ -33,7 +33,7 @@ class NewIdCardScreen extends StatelessWidget {
                 height: 20,
               ),
               Container(
-                  margin: EdgeInsets.only(right: 20, left: 20),
+                  margin:const EdgeInsets.only(right: 20, left: 20),
                   child: TextFormField(
                     controller: provider.nameController,
                     decoration: InputDecoration(
@@ -48,11 +48,11 @@ class NewIdCardScreen extends StatelessWidget {
                 height: 20,
               ),
               Container(
-                  margin: EdgeInsets.only(right: 20, left: 20),
+                  margin:const EdgeInsets.only(right: 20, left: 20),
                   child: TextFormField(
                     controller: provider.typeController,
                     decoration: InputDecoration(
-                      label: Text('Type'),
+                      label:const Text('Type'),
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(30),
                           borderSide:
@@ -63,11 +63,11 @@ class NewIdCardScreen extends StatelessWidget {
                 height: 20,
               ),
               Container(
-                  margin: EdgeInsets.only(right: 20, left: 20),
+                  margin:const EdgeInsets.only(right: 20, left: 20),
                   child: TextFormField(
                     controller: provider.creationDateController,
                     decoration: InputDecoration(
-                      label: Text('Creation Date'),
+                      label:const Text('Creation Date'),
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(30),
                           borderSide:
@@ -78,7 +78,7 @@ class NewIdCardScreen extends StatelessWidget {
                 height: 20,
               ),
               Container(
-                margin: EdgeInsets.only(right: 20, left: 20),
+                margin:const EdgeInsets.only(right: 20, left: 20),
                 child: TextFormField(
                   controller: provider.validDateController,
                   decoration: InputDecoration(
@@ -93,17 +93,21 @@ class NewIdCardScreen extends StatelessWidget {
               const SizedBox(
                 height: 30,
               ),
-              ElevatedButton(
-                  onPressed: () async {
-                    await provider.insertNewID();
-                    Navigator.pop(context);
-                  },
-                  style: ElevatedButton.styleFrom(
-                    primary: const Color(0xffE07C5E),
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30.0)),
-                  ),
-                  child: const Text('Add New ID!'))
+              Container(
+                height: 40,
+                width: 200,
+                child: ElevatedButton(
+                    onPressed: () async {
+                      await provider.insertNewID();
+                        Navigator.pop(context);
+                    },
+                    style: ElevatedButton.styleFrom(
+                      primary: const Color(0xff3874b0),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30.0)),
+                    ),
+                    child: const Text('Add New ID!', style: TextStyle(fontSize: 15),)),
+              )
             ],
           );
         }),

@@ -11,7 +11,7 @@ class NewPasswordScreen extends StatelessWidget {
     return Scaffold(
       appBar: CustomAppBar('Add Password Screen'),
       body: Container(
-        color: const Color(0xfffaece9),
+        color: const Color(0xfff3f0f1),
         child: Consumer<Manager>(builder: (context, provider, x) {
           return Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -61,20 +61,23 @@ class NewPasswordScreen extends StatelessWidget {
                   controller: provider.passwordController,
                 ),
               ),
-             const SizedBox(
+              const SizedBox(
                 height: 50,
               ),
-              ElevatedButton(
-                  onPressed: () async {
-                    await provider.insertNewPassword();
-                    Navigator.pop(context);
-                  },
-                  style: ElevatedButton.styleFrom(
-                    primary: const Color(0xffE07C5E),
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30.0)),
-                  ),
-                  child: const Text('Add New Password For Your Account!'))
+              Container(
+                  height: 50,
+                  width: 280,
+                  child: ElevatedButton(
+                      onPressed: () async {
+                        await provider.insertNewPassword();
+                        Navigator.pop(context);
+                      },
+                      style: ElevatedButton.styleFrom(
+                        primary: const Color(0xff3874b0),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(30.0)),
+                      ),
+                      child: const Text('Add New Password For Your Account!')))
             ],
           );
         }),
