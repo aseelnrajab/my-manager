@@ -134,7 +134,7 @@ class MainHome extends StatelessWidget {
                             width: 150,
                           ),
                           const Icon(
-                            Icons.arrow_forward,
+                            Icons.manage_history,
                             size: 20,
                           )
                         ],
