@@ -45,7 +45,7 @@ class NotesWidget extends StatelessWidget {
           Text(noteModel.dateOfAdd.toString()),
         ]),
         const SizedBox(
-          width: 150,
+          width: 120,
         ),
         Column(
           children: [

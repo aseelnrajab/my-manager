@@ -40,10 +40,6 @@ class IdCardWidget extends StatelessWidget {
           const SizedBox(
             height: 5,
           ),
-          Text(identityModle.type.toString()),
-          const SizedBox(
-            height: 5,
-          ),
           Text(identityModle.validDate.toString()),
         ]),
         const SizedBox(

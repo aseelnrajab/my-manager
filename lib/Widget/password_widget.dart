@@ -21,7 +21,7 @@ class PasswordWidget extends StatelessWidget {
       child: Row(children: [
         const Icon(Icons.key, color: Color(0xff3874b0)),
         const SizedBox(
-          width: 110,
+          width: 80,
         ),
         Column(children: [
           Text(
@@ -44,7 +44,7 @@ class PasswordWidget extends StatelessWidget {
             passwordsModel.password.toString(),
           ),
         ]),
-       const SizedBox(width: 120,),
+       const SizedBox(width: 99,),
         Column(
           children: [
             InkWell(
